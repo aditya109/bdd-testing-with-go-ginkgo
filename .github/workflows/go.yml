@@ -1,0 +1,36 @@
+name: Go
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.17
+
+    - name: Setup Chrome
+      uses: browser-actions/setup-chrome@v0.0.0
+      with:
+        # The Chromium version to install and use.
+        chromium-version: 100.0.4896.75 
+        
+    - name: Setup Chromedriver
+      # You may pin to the exact commit or the version.
+      # uses: nanasess/setup-chromedriver@cc57e407ab3004f399e5452ae6ee2eeeeaaa8da4
+      uses: nanasess/setup-chromedriver@v1.0.7
+      with:
+        # The chromedriver version to install
+        chromedriver-version: 100.0.4896.60
+    
+    - name: Test
+      run: go test -v ./... -json > reports/test-report.json
