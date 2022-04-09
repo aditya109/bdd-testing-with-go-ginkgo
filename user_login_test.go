@@ -27,10 +27,10 @@ var _ = Describe("UserLogin", func() {
 		})
 	})
 
-	It("should manage user authentication", func() {
+	/* It("should manage user authentication", func() {
 		By("redirecting the user to the login from the home page", func() {
 			Expect(page.Navigate("http://dummy.railflow.io/")).To(Succeed())
 			Expect(page).To(HaveURL("http://dummy.railflow.io/signin"))
 		})
-	})
+	}) */
 })
