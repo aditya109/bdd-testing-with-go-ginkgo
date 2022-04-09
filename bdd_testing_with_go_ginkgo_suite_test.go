@@ -16,14 +16,11 @@ func TestBddTestingWithGoGinkgo(t *testing.T) {
 var agoutiDriver *agouti.WebDriver
 
 var _ = BeforeSuite(func() {
-	options := agouti.ChromeOptions("args", []string{
-		"--headless",
-	})
 	// Choose a WebDriver:
 
 	// agoutiDriver = agouti.PhantomJS()
 	// agoutiDriver = agouti.Selenium()
-	agoutiDriver = agouti.ChromeDriver(options)
+	agoutiDriver = agouti.ChromeDriver()
 
 	Expect(agoutiDriver.Start()).To(Succeed())
 })
