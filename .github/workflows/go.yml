@@ -17,6 +17,9 @@ jobs:
       uses: actions/setup-go@v3
       with:
         go-version: 1.17
+
+    - uses: browser-actions/setup-chrome@latest
+      run: chrome --version
     
     - name: Test
       # run: go test -v ./... -json > reports/test-report.json
